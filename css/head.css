@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,legend,button,form,fieldset,input,textarea,p,blockquote,th,td {padding:0; margin:0;}
+body{ font-size:16px; font-family:"宋体","微软雅黑",Arial, Helvetica, sans-serif; color:#7d7d7d;}
+ul,li{ list-style-type:none;}
+img{ border:none;}
+a{ color:#7d7d7d; text-decoration:none; cursor:pointer; outline:none;}
+a:hover{ color:#cf0000; text-decoration:none;}
+a:active {star:expression(this.onFocus=this.blur());}
+a:focus{outline:none;}
+
+h1, h2, h3, h4, h5, h6{ font-weight:normal;}
+i,em,strong{ font-style:normal;} 
+input{ cursor:pointer;}
+.dispaly_n{ display:none;}
+table{ border-collapse: collapse; }
+
+/*清除浮动*/
+.clearfix:after{content:"."; height:0; clear:both; display:block; overflow:hidden;}
+.clearfix{zoom:1;}
+.clear{ clear:both; margin:0; padding:0;}
+
+/*文本样式*/
+.ellipsis{text-overflow:ellipsis; overflow:hidden; white-space:nowrap; padding:0 5px;}/*超出文字隐藏，并显示...*/
+.text_left{ text-align:left;}/*文字左对齐*/
+.text_center{ text-align:center;}/*文字中对齐*/
+.text_right{ text-align:right;}/*文字右对齐*/
+
+.left{float: left;}
+.right{float: right;}
+.weight{ font-weight:700;}/*字体加粗*/
+
+.show{ display:block;}
+.hidd{ display:none;}
+.border_b_n{ border-bottom:none;}
+
+/*颜色*/
+.red{ color:#ff0000;}
+.green{ color:#255ab0;}

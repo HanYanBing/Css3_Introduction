@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+	<style>
+		th,td{ border: 1px solid blue; }
+	</style>
+
+</head>
+<body  ng-app="myApp">
+
+	<div ng-controller="mycontrol">
+		{{date}} <br/>
+		{{date1}}
+
+		<input type="text" ng-model="inputModal"/> <button ng-click ="filterFun()">搜索</button>
+		<table>
+			<tr><th ng-click="orderFun('name')">姓名</th><th ng-click="orderFun('age')">年龄</th></tr>
+			<tr ng-repeat="content in list">
+				<td>{{content.name}}</td>
+				<td>{{content.age}}</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
+
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+
+	var m1 = angular.module('myApp',[]);
+	m1.controller('mycontrol',['$scope','$filter',function($scope,$filter) {
+		var oriArr = [
+			{name: "red", age: "20"},
+			{name: "yellow", age: "40"},
+			{name: "blue", age: "30"},
+			{name: "green", age: "10"}
+		];
+
+		$scope.list = oriArr;
+		$scope.bool = true;
+
+		$scope.orderFun = function(msg){
+			$scope.bool = !$scope.bool;
+			$scope.list = $filter('orderBy')($scope.list,msg,$scope.bool);
+		};
+
+		$scope.filterFun = function(){
+			$scope.list = $filter('filter')(oriArr,$scope.inputModal);
+		};
+
+
+		//		过滤时间 JS写法
+		//		http://blog.csdn.net/smile_panda/article/details/50604868
+		$scope.con = $filter('date')('1472733968000','yyyy/MM/dd');
+		$scope.con1 = $filter('date')('1472733968000','H:mm:ss');
+
+		$scope.total =$filter('number')(123456,3);
+
+	}]);
+</script>
+
+
+
